@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/ReactToastify.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +35,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       </head>
       <body className="">
         <Header />
+        <ToastContainer />
         {children}
         <Footer />
       </body>

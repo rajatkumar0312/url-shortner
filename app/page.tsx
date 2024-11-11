@@ -51,10 +51,10 @@ export default function Home() {
       })
       .catch((error) => {
         console.error('Failed to copy URL', error);
-        alert('Failed to copy URL.')
+        toast.error('Failed to copy URL.')
       })
     }else{
-      alert('Please enable JavaScript in your browser');
+      toast.error('Please enable JavaScript in your browser');
     }
   }
 
