@@ -1,0 +1,35 @@
+/* styles/global.css */
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header nav{
+  padding: 1rem !important;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#homeFirst{
+  background-image: url('../../public/banner-bg.webp');
+  background-size: cover;
+  background-position: center;
+}
+.nav-link.active{
+    border-bottom: 1px solid #fff;
+}
+.planGrid {
+  border: 1px solid #dee2e6;
+  padding: 30px;
+  min-height: 500px;
+}
