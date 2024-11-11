@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "About OPN.MY - Free URl Shortner",
+    title: "About OPN.MY - Free URL Shortner",
     description: "About - Free URL Shortner",
 };
 

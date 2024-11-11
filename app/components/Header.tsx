@@ -21,7 +21,7 @@ export default function Header() {
                                 <Link className={`nav-link text-white ${pathname === '/about' ? 'active' : ''} `} href="/about">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link text-white ${pathname === '/pricing' ? 'active' : ''} `} href="/pricing">Price Plan</Link>
+                                <Link className={`nav-link text-white ${pathname === '/pricing' ? 'active' : ''} `} href="/pricing">Price Plans</Link>
                             </li>
                         </ul>
                     </div>

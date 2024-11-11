@@ -19,7 +19,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
+.nav-link:hover{
+  text-decoration: none;
+}
 #homeFirst{
   background-image: url('../../public/banner-bg.webp');
   background-size: cover;
@@ -30,6 +32,23 @@ a:hover {
 }
 .planGrid {
   border: 1px solid #dee2e6;
-  padding: 30px;
+  padding: 20px;
   min-height: 500px;
+  position: relative;
+}
+#pricingFirst, #firstContact, #firstRegister, #termsFirst{
+  min-height: 100vh;
+}
+/*plan page css*/
+.planGrid h2{
+  line-height: 1;
+}
+.planGrid h2 .text-muted{
+  font-size: 0.5em;
+}
+.planGrid .btn {
+  position: absolute;
+  width: 90%;
+  display: block;
+  bottom: 20px;
 }
