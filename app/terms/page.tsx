@@ -1,7 +1,7 @@
 import Link from "next/link";
 export const metadata: Metadata = {
-    title: "About OPN.MY - Free URL Shortner",
-    description: "About - Free URL Shortner",
+    title: "Terms OPN.MY - Free URL Shortner",
+    description: "Terms & Conditions for using Free URL Shortner",
 };
 export default function Terms(){
     return(

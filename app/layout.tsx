@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OPN.MY- Free URl Shortner",
+  title: "OPN.MY- Free URL Shortner",
   description: "Free URL Shortner",
 };
 
