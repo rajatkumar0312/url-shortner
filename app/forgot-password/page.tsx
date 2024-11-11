@@ -1,12 +1,8 @@
 import Link from "next/link";
-export const metadata: Metadata = {
-    title: "Login OPN.MY - Free URL Shortner",
-    description: "About - Free URL Shortner",
-};
-export default function Login(){
+export default function forgotPassword(){
     return(
         <main className="mainContent">
-            <section id="firstRegister" className="py-5">
+            <section id="firstForgot" className="py-5">
                 <div className="container">
                     <div className="row slign-items-center justify-content-center">
                         <div className="col-lg-4">
@@ -17,15 +13,9 @@ export default function Login(){
                                     <div className="mb-3">
                                         <label htmlFor="exampleInputEmail" className="form-label">Email address</label>
                                         <input type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" required />
-                                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                     </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="exampleInputPassword" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword" required />
-                                    </div>
-                                    <p className="fs-10 my-3"><Link href="/forgot-password">Forgot Password?</Link>.</p>
-                                    <button type="submit" className="btn btn-primary w-100">Sign In</button>
-                                    <p className="fs-10 mt-3 text-center">Don’t have an account? <Link href="/register">Sign Up</Link>.</p>
+                                    <button type="submit" className="btn btn-primary w-100">Forgot Password</button>
+                                    {/* <p className="fs-10 d-flex flex-auto gap-3 mt-3"> <Link href="/login" className="btn btn-primary w-100">Login</Link> <Link href="/register" className="btn btn-primary w-100">SignUp</Link>.</p> */}
                                 </form>
                             </div>
                         </div>

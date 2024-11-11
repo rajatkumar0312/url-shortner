@@ -10,7 +10,7 @@ export default function Register(){
                 <div className="container">
                     <div className="row slign-items-center justify-content-center">
                         <div className="col-lg-4">
-                            <h2 className="text-center pt-5">OPN.MY</h2>
+                            <h2 className="text-center">OPN.MY</h2>
                             <p className="text-center mb-3">Welcome to OPN.MY Free URL Shortner</p>
                             <div className="registerForm">
                                 <form>

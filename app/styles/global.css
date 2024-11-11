@@ -36,8 +36,10 @@ a:hover {
   min-height: 500px;
   position: relative;
 }
-#pricingFirst, #firstContact, #firstRegister, #termsFirst{
-  min-height: 100vh;
+#pricingFirst, #firstContact, #firstRegister, #termsFirst, #firstForgot{
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
 }
 /*plan page css*/
 .planGrid h2{
