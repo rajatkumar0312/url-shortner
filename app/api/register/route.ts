@@ -19,13 +19,12 @@ export async function POST(request: Request) {
                 { status: 400 }
             );
         }
+
+        //console.log('Sending JSON payload:', JSON.stringify(jsonPayload));
+
         const apiUrl = process.env.SIGNUP_API_URL;
         const apiKey = process.env.URL_API_KEY;
         
-        if (!apiUrl || !apiKey) {
-            throw new Error("Missing API URL or API key in environment variables");
-        }
-
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -35,7 +34,7 @@ export async function POST(request: Request) {
             body: JSON.stringify({ name, email, password }),
         });
 
-        console.log('External API response status:', response.status);
+        //console.log('External API response status:', response.status);
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -48,12 +47,12 @@ export async function POST(request: Request) {
 
         // Parse the external API response
         const data = await response.json();
-        console.log('External API response data:', data);
+        //console.log('External API response data:', data);
 
         // Return the API result
         return NextResponse.json({ result: data.status });
     } catch (error: any) {
-        console.error('Unexpected API Error:', error.message || error);
+        //console.error('Unexpected API Error:', error.message || error);
         return NextResponse.json(
             { error: 'An unexpected error occurred. Please try again later.' },
             { status: 500 }

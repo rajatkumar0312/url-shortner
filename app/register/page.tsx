@@ -40,8 +40,10 @@ export default function Register(){
             }
             const data = await response.json();
             setResult(data.result);
-            if(result === 'success' ){
+            if(data.result === 'success' ){
                 toast.success(`${formData.name}, You've registered successfully. You can now login.`);
+            }else if(data.result === 'failed'){
+                toast.warning(`Account already exist!`);
             }
             
             if(formRef.current){
@@ -111,9 +113,9 @@ export default function Register(){
                                             <span className="visually-hidden">Loading...</span>
                                         </div>
                                     }
+                                    {/* <p>{ result }</p> */}
                                 </form>
                             </div>
-                            {/* <p>{result}</p> */}
                         </div>
                     </div>
                 </div>
