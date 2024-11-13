@@ -1,7 +1,7 @@
 "use client";
 //import { Metadata } from "next";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { toast } from "react-toastify";
 // browser metadata
 // export const metadata: Metadata = {
@@ -14,6 +14,7 @@ export default function Register(){
     const [formData, setFormData] = useState({name:'', email: '', password: ''});
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState<string | null>(null);
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -27,7 +28,7 @@ export default function Register(){
         setLoading(true);
         setResult(null);
         try {
-            const response = await fetch('/api/register', {
+            const response = await fetch('/api/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,6 +40,15 @@ export default function Register(){
             }
             const data = await response.json();
             setResult(data.result);
+            if(result === 'success' ){
+                toast.success(`${formData.name}, You've registered successfully. You can now login.`);
+            }
+            
+            if(formRef.current){
+                formRef.current.reset();
+            }
+            setFormData({ name: '', email: '', password: '' });
+
         } catch (error) {
             console.error('API Error:', error);
         }
@@ -103,7 +113,7 @@ export default function Register(){
                                     }
                                 </form>
                             </div>
-                            <p>{result}</p>
+                            {/* <p>{result}</p> */}
                         </div>
                     </div>
                 </div>

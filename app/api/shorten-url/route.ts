@@ -8,13 +8,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    // Forward the request to the external API
-    //const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const response = await fetch('https://opn.my/api/index.php', {
+    const apiUrl = process.env.SIGNUP_API_URL;
+    const apiKey = process.env.URL_API_KEY;
+    
+    if (!apiUrl || !apiKey) {
+        throw new Error("Missing API URL or API key in environment variables");
+    }
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'key': '1234567890abcdef',
+        'key': apiKey,
       },
       body: JSON.stringify({ url, type: 'url' }),
     });
