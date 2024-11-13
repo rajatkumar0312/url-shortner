@@ -5,7 +5,7 @@ export async function POST(request: Request) {
         if (request.method !== 'POST') {
             console.error('Invalid request method');
             return NextResponse.json(
-                { error: 'Invalid request method. Only POST is allowed.' },
+                { error: 'Invalid request method.' },
                 { status: 405 }
             );
         }

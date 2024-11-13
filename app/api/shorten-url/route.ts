@@ -8,7 +8,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    const apiUrl = process.env.SIGNUP_API_URL;
+    const apiUrl = process.env.URL_SHORTEN_API_URL;
     const apiKey = process.env.URL_API_KEY;
     
     if (!apiUrl || !apiKey) {
