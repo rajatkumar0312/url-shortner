@@ -19,8 +19,6 @@ export async function POST(request: Request) {
                 { status: 400 }
             );
         }
-        console.log("SIGNUP_API_URL:", process.env.SIGNUP_API_URL);
-        console.log("URL_API_KEY:", process.env.URL_API_KEY);
         const apiUrl = process.env.SIGNUP_API_URL;
         const apiKey = process.env.URL_API_KEY;
         
