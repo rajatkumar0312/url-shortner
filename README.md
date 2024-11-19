@@ -1,18 +1,19 @@
-URL Shortner Next.js Authentication Project
+Here’s the GitHub-friendly README.md with improved formatting and design for your project:
+
+URL Shortener Next.js Authentication Project
 
 This project demonstrates user authentication and session management using NextAuth.js with a custom credentials provider and Google OAuth. It includes protected routes, a custom login page, a signout page, and error handling.
 
 Features
 
-	•	User authentication via credentials (username and password) from a third-party API.
-	•	Google OAuth login.
-	•	Protected routes for authenticated users only.
-	•	Customizable login, signout, and error pages.
-	•	JWT-based session management.
+	•	✅ User authentication via credentials (username and password) from a third-party API.
+	•	✅ Google OAuth login.
+	•	✅ Protected routes for authenticated users only.
+	•	✅ Customizable login, signout, and error pages.
+	•	✅ JWT-based session management.
 
 Project Structure
 
-<code>
 /app
   /api
     /auth
@@ -29,7 +30,6 @@ Project Structure
     page.tsx            # Custom error page
   layout.tsx            # Wraps app in SessionProvider
   globals.css           # Global styles
-</code>
 
 Getting Started
 
@@ -51,7 +51,6 @@ npm install
 
 Create a .env.local file in the root directory and configure the following environment variables:
 
-<code>
 # NextAuth Configuration
 NEXTAUTH_SECRET=your-random-secret
 
@@ -62,7 +61,6 @@ URL_API_KEY=your-api-key
 # Google OAuth
 AUTH_GOOGLE_ID=your-google-client-id
 AUTH_GOOGLE_SECRET=your-google-client-secret
-</code>
 
 4. Running the Development Server
 
@@ -89,32 +87,29 @@ Custom Pages
 
 Login Page
 
-Located at /login:
+	•	Location: /login
 	•	Handles user login via credentials or Google OAuth.
 
 Dashboard Page
 
-Located at /dashboard/home:
+	•	Location: /dashboard/home
 	•	Protected page accessible only to logged-in users.
 
 Signout Page
 
-Located at /signout:
+	•	Location: /signout
 	•	Logs out the user and redirects to /login.
 
 Error Page
 
-Located at /error:
+	•	Location: /error
 	•	Displays custom error messages for authentication failures.
 
 Code Overview
 
 NextAuth Configuration
 
-<code>
-/app/api/auth/[...nextauth]/route.ts:
-</code>
-
+File: /app/api/auth/[...nextauth]/route.ts
 	•	Configures NextAuth.js with:
 	•	Credentials Provider: Authenticates users via a third-party API.
 	•	Google Provider: Allows login via Google OAuth.
@@ -124,7 +119,6 @@ Protecting Routes
 
 The /dashboard/home page uses useSession to check authentication status. Non-authenticated users are redirected to the login page.
 
-<code>
 "use client";
 
 import { useSession } from "next-auth/react";
@@ -147,7 +141,6 @@ export default function DashboardHome() {
 
     return <h1>Welcome to the Dashboard, {session?.user?.name || "User"}!</h1>;
 }
-</code>
 
 Custom Signout
 
@@ -157,7 +150,6 @@ Custom Error Handling
 
 The authorize function in CredentialsProvider handles errors and passes relevant messages to the client. Example:
 
-<code>
 async authorize(credentials) {
     const { username, password } = credentials;
 
@@ -187,7 +179,6 @@ async authorize(credentials) {
         throw new Error(error.message || "Login failed.");
     }
 }
-</code>
 
 Scripts
 
@@ -206,12 +197,12 @@ Troubleshooting
 
 Future Enhancements
 
-	•	Add role-based access control (e.g., admin, user).
-	•	Implement password reset functionality.
-	•	Enhance error logging and reporting.
+	•	🔒 Add role-based access control (e.g., admin, user).
+	•	🔑 Implement password reset functionality.
+	•	📊 Enhance error logging and reporting.
 
 License
 
 This project is open-source and available under the MIT License.
 
-Let me know if you need additional modifications! 😊
+Feel free to copy this directly into your GitHub repository. Let me know if you’d like further adjustments! 😊
