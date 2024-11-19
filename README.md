@@ -1,6 +1,4 @@
-Here’s a comprehensive README.md file for your project:
-
-Next.js Authentication Project
+URL Shortner Next.js Authentication Project
 
 This project demonstrates user authentication and session management using NextAuth.js with a custom credentials provider and Google OAuth. It includes protected routes, a custom login page, a signout page, and error handling.
 
