@@ -11,7 +11,7 @@ Features
 	•	JWT-based session management.
 
 Project Structure
-
+<code>
 /app
   /api
     /auth
@@ -28,7 +28,7 @@ Project Structure
     page.tsx            # Custom error page
   layout.tsx            # Wraps app in SessionProvider
   globals.css           # Global styles
-
+</code>
 Getting Started
 
 1. Prerequisites
