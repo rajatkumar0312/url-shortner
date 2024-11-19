@@ -11,6 +11,7 @@ Features
 	•	JWT-based session management.
 
 Project Structure
+
 <code>
 /app
   /api
@@ -29,6 +30,7 @@ Project Structure
   layout.tsx            # Wraps app in SessionProvider
   globals.css           # Global styles
 </code>
+
 Getting Started
 
 1. Prerequisites
@@ -49,6 +51,7 @@ npm install
 
 Create a .env.local file in the root directory and configure the following environment variables:
 
+<code>
 # NextAuth Configuration
 NEXTAUTH_SECRET=your-random-secret
 
@@ -59,6 +62,7 @@ URL_API_KEY=your-api-key
 # Google OAuth
 AUTH_GOOGLE_ID=your-google-client-id
 AUTH_GOOGLE_SECRET=your-google-client-secret
+</code>
 
 4. Running the Development Server
 
@@ -107,7 +111,10 @@ Code Overview
 
 NextAuth Configuration
 
+<code>
 /app/api/auth/[...nextauth]/route.ts:
+</code>
+
 	•	Configures NextAuth.js with:
 	•	Credentials Provider: Authenticates users via a third-party API.
 	•	Google Provider: Allows login via Google OAuth.
@@ -117,6 +124,7 @@ Protecting Routes
 
 The /dashboard/home page uses useSession to check authentication status. Non-authenticated users are redirected to the login page.
 
+<code>
 "use client";
 
 import { useSession } from "next-auth/react";
@@ -139,6 +147,7 @@ export default function DashboardHome() {
 
     return <h1>Welcome to the Dashboard, {session?.user?.name || "User"}!</h1>;
 }
+</code>
 
 Custom Signout
 
@@ -148,6 +157,7 @@ Custom Error Handling
 
 The authorize function in CredentialsProvider handles errors and passes relevant messages to the client. Example:
 
+<code>
 async authorize(credentials) {
     const { username, password } = credentials;
 
@@ -177,6 +187,7 @@ async authorize(credentials) {
         throw new Error(error.message || "Login failed.");
     }
 }
+</code>
 
 Scripts
 
