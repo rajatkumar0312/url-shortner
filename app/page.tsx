@@ -70,7 +70,7 @@ export default function Home() {
             <div className="col-md-6">
               <div className="header-text caption py-5">
                   <h1 className="display-4 text-white text-center fw-bold">Free URL Shortner</h1>
-                  <p className="mb-5 text-white text-center">OPN.MY is a free tool to shorten URLs powered by Rebrandly. Create short & memorable links in seconds.</p>
+                  <p className="mb-5 text-white text-center">Welcome to OPN.MY – Your Go-To URL Shortener and QR Code Generator</p>
                   <div className="d-flex flex-auto mb-3">
                     <p className="text-center mx-auto d-flex gap-3">
                       <button className={`btn btn-primary mr-3 ${activeTab === 'shortUrl' ? 'disabled' : ''}`} id="shortUrlTabBtn" onClick={() => (setActiveTab('shortUrl'))}>Generate Short URL</button>
@@ -192,33 +192,36 @@ export default function Home() {
       </section>
       <section id="thirdHome" className="py-5">
         <div className="container">
-          <div className="row">
-            <div className="col">
-              <div className="singleFeatureHome">
+          <div className="row justify-content-center">
+            <div className="col-12">
+              <h2 className="text-center mb-5">Why Choose OPN.MY?</h2>
+            </div>
+            <div className="col-4">
+              <div className="singleFeatureHome text-center">
                 <h3>Effortless</h3>
                 <p>OPN.MY makes shortening links quick and simple—just enter your long URL, and instantly get a shortened link.</p>
               </div>
             </div>
-            <div className="col">
-              <div className="singleFeatureHome">
+            <div className="col-4">
+              <div className="singleFeatureHome text-center">
                 <h3>Shortened</h3>
                 <p>No matter the length, OPN.MY can shorten any link with ease.</p>
               </div>
             </div>
-            <div className="col">
-              <div className="singleFeatureHome">
+            <div className="col-4">
+              <div className="singleFeatureHome text-center">
                 <h3>Secure</h3>
                 <p>Our service is not only fast but also secure, featuring HTTPS protocol and robust data encryption to protect your information.</p>
               </div>
             </div>
-            <div className="col">
-              <div className="singleFeatureHome">
+            <div className="col-4">
+              <div className="singleFeatureHome text-center">
                 <h3>Analytics</h3>
                 <p>Track the number of clicks your shortened URL has received.</p>
               </div>
             </div>
-            <div className="col">
-              <div className="singleFeatureHome">
+            <div className="col-4">
+              <div className="singleFeatureHome text-center">
                 <h3>Cross-Platform</h3>
                 <p>Works seamlessly on smartphones, tablets, and desktops.</p>
               </div>
@@ -226,9 +229,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="fourHome" className="py-5">
+      <section id="fourHome" className="py-5 bg-light">
         <div className="container">
           <div className="row">
+            <div className="col-lg-12">
+              <h2 className="text-center mb-5">Clients</h2>
+            </div>
             <div className="col">
               <Image
                 src="/Brand-Keepers.png"
@@ -260,6 +266,69 @@ export default function Home() {
                 width={200}
                 height={100}
               />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fiveHome" className="py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <h2 className="text-center mb-5">Key Features at a Glance</h2>
+            </div>
+            <div className="col">
+              <div className="singleHowitWorks">
+                <h3>Shorten Your URL</h3>
+                <p>Enter your long URL into our tool and get a clean, shareable link in seconds.</p>
+              </div>
+            </div>
+            <div className="col">
+              <div className="singleHowitWorks">
+                <h3>Generate a QR Code</h3>
+                <p>Customize your QR code to match your brand and make sharing effortless.</p>
+              </div>
+            </div>
+            <div className="col">
+              <div className="singleHowitWorks">
+                <h3>Track & Analyze</h3>
+                <p>Use our intuitive dashboard to track clicks, scans, and engagement in real-time</p>
+              </div>
+            </div>
+            <div className="col">
+              <div className="singleHowitWorks">
+                <h3>Share Confidently</h3>
+                <p>Trust that your links and QR codes are protected from scams and malicious activity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="sixHome" className="py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="text-center mb-3">Get Started Today</h2>
+              <p>Transform the way you manage links and QR codes with OPN.MY. Whether it’s tracking marketing campaigns, sharing on social media, or streamlining your digital presence, we’ve got you covered.</p>
+              <div className="d-flex gap-3 justify-content-center">
+                <Link href="/login" className="btn btn-primary">Start now for Free</Link>
+                <Link href="/pricing" className="btn btn-primary">Explore Premium Plans</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="sevenHome" className="py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <h2 className="text-center mb-3">Why Security Matters to Us</h2>
+            </div>
+            <div className="col-lg-8">
+              <p>At OPN.MY, we believe trust is everything. That’s why we integrate <strong>Google Safe Browsing API</strong>, providing an additional layer of protection against scams, phishing, and malware. Share your links with confidence, knowing they’re secure for your audience.</p>
+            </div>
+            <div className="col-lg-4">
+              <figure>
+              </figure>
             </div>
           </div>
         </div>

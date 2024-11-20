@@ -21,8 +21,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OPN.MY- Free URL Shortner",
-  description: "Free URL Shortner",
+  title: "Create, Track, and Secure Your Links with OPN.MY | URL Shortener with QR Code Feature",
+  description: "Shorten your URLs, generate QR codes, and track link performance with OPN.MY. Scam-free, Google Safe Browsing API integration, and pricing plans tailored for everyone.",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
