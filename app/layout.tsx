@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -7,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
+import { SessionProvider } from "next-auth/react";
 
 
 const geistSans = localFont({
@@ -20,10 +22,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Create, Track, and Secure Your Links with OPN.MY | URL Shortener with QR Code Feature",
-  description: "Shorten your URLs, generate QR codes, and track link performance with OPN.MY. Scam-free, Google Safe Browsing API integration, and pricing plans tailored for everyone.",
-};
+// export const metadata: Metadata = {
+//   title: "Create, Track, and Secure Your Links with OPN.MY | URL Shortener with QR Code Feature",
+//   description: "Shorten your URLs, generate QR codes, and track link performance with OPN.MY. Scam-free, Google Safe Browsing API integration, and pricing plans tailored for everyone.",
+// };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
@@ -37,7 +39,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className="">
         <Header />
         <ToastContainer />
-        {children}
+        <SessionProvider>{children}</SessionProvider>
         <Footer />
       </body>
     </html>

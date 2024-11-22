@@ -40,3 +40,73 @@ a {
     color-scheme: dark;
   }
 }
+#thirdHome, #fiveHome, #eightHome{
+  background-color: #eee;
+}
+#fiveHome, #secondHome, #eightHome{
+  padding: 5em 0 !important;
+}
+.singleFeatureHome {
+  margin-bottom: 30px;
+}
+.startedToday{
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background: #eee;
+  position: relative;
+  min-height: 550px;
+  transition: all 0.5s ease-in-out;
+}
+.startedTodayContent{
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 15px 15px 15px 15px;
+  transition: all 0.5s ease-in-out;
+}
+.startedToday p.cardDescription {
+  min-height: 75px;
+}
+.startedTodayContentMore{
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+.startedToday:hover .startedTodayContentMore{
+  display: block;
+  transform: translateY(0);
+}
+.startedToday:hover .startedTodayContent .startedTodayIcon svg{
+  transform: rotate(180deg);
+}
+#sevenHome, #sixHome{
+  padding: 5em 0 !important;
+}
+section h2 {
+  font-size: 3em;
+  font-weight: 700;
+}
+.homeStat {
+  cursor: none;
+  padding: 30px 10px;
+  background: #fff;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.homeStat:hover {
+  box-shadow: 0 0 10px #bbb;
+  transform: scale(1.05);
+}
+.homeStat h4{
+  font-size: 5em;
+  font-weight: 900;
+  text-align: center;
+}
+.homeStat h5{
+  font-size: 1em;
+  text-align: center;
+}
+.homeStatIcon{
+  text-align: center;
+}

@@ -1,21 +1,24 @@
 "use client";
+
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function DashbaordHome(){
+export default function DashboardHome() {
     const { data: session, status } = useSession();
     const router = useRouter();
+
     useEffect(() => {
-        if(status === 'unauthenticated'){
+        if (status === "unauthenticated") {
             router.push("/login");
         }
     }, [status, router]);
 
-    if(status === "loading"){
+    if (status === "loading") {
         return <p>Loading...</p>;
     }
-    return(
+
+    return (
         <main className="mainContent">
             <section id="dHomeFirst" className="py-5">
                 <div className="container-fluid px-0">

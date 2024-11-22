@@ -9,7 +9,7 @@ export default function Login(){
     const router = useRouter();
     const [formData, setFormData] = useState({username: '', password: ''});
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState<string | null>(null);
+    //const [result, setResult] = useState<string | null>(null);
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const { name, value } = e.target;
@@ -36,11 +36,11 @@ export default function Login(){
             });
 
             if (result) {
-                setResult(result);
                 console.log(result);
+                //setResult(result);
                 
                 const session = await getSession();
-
+                console.log(session);
                 if (session?.status === "success") {
                     toast.success(session.message || "Login successful! Redirecting...");
                     router.push("/dashboard/home");
@@ -49,14 +49,14 @@ export default function Login(){
                 } else if (session?.status === "failed") {
                     toast.error(session.message || "Login failed. Please try again.");
                 } else {
-                    toast.error("An unexpected error occurred. Please try again.");
+                    toast.error("An unexpected error occurred. Please try again. no session");
                 }
             } else {
-                toast.error("An unexpected error occurred. Please try again.");
+                toast.error("An unexpected error occurred. Please try again. no result");
             }
         } catch (error) {
             console.error("Login error:", error);
-            toast.error("An unexpected error occurred. Please try again.");
+            toast.error("An unexpected error occurred. Please try again. outer");
         } finally {
             setLoading(false);
         }
@@ -64,11 +64,17 @@ export default function Login(){
     const handleGoogleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setLoading(true);
+    
         try {
-            const result = await signIn("google", { callbackUrl: "/dashboard/home" });
-            if (!result?.ok) {
-                toast.error("Google login failed. Please try again.");
-            }
+            // Show a message before redirecting
+            toast.info("Redirecting to Google login...");
+    
+            // Trigger Google login
+            const result = await signIn("google", {
+                callbackUrl: "/dashboard/home",
+            });
+    
+            // The `signIn` function will handle the redirect automatically
         } catch (error) {
             console.error("Google login error:", error);
             toast.error("An unexpected error occurred. Please try again.");
