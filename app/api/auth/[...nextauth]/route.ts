@@ -79,9 +79,9 @@ const handler = NextAuth({
                 token.id = user.id;
                 token.name = user.name;
                 token.email = user.email;
-                token.status = user.status || null; // Add custom status
-                token.message = user.message || null; // Add custom message
-                token.role = user.role || "user"; // Add role if provided
+                token.status = user.status || null; 
+                token.message = user.message || null;
+                token.role = user.role || "user"; 
             }
             return token;
         },
@@ -91,17 +91,17 @@ const handler = NextAuth({
                     id: token.id,
                     name: token.name,
                     email: token.email,
-                    role: token.role, // Pass role to session
+                    role: token.role, 
                 };
-                session.status = token.status || null; // Add custom status
-                session.message = token.message || null; // Add custom message
+                session.status = token.status || null; 
+                session.message = token.message || null; 
             }
             return session;
         },
     },
     pages: {
-        signIn: "/login", // Custom login page
-        error: "/error",  // Custom error page
+        signIn: "/login", 
+        error: "/error",  
     },
 });
 

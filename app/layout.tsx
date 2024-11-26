@@ -1,16 +1,15 @@
 "use client";
-import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import localFont from "next/font/local";
-import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 import "./styles/global.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/ReactToastify.css";
-import { SessionProvider } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-
+// Custom fonts
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -22,25 +21,26 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// export const metadata: Metadata = {
-//   title: "Create, Track, and Secure Your Links with OPN.MY | URL Shortener with QR Code Feature",
-//   description: "Shorten your URLs, generate QR codes, and track link performance with OPN.MY. Scam-free, Google Safe Browsing API integration, and pricing plans tailored for everyone.",
-// };
-
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-      <link
+        <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="">
-        <Header />
-        <ToastContainer />
-        <SessionProvider>{children}</SessionProvider>
-        <Footer />
+      <body>
+        <SessionProvider>
+          <Header />
+          <ToastContainer />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

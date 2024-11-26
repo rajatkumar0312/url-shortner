@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
     const pathname = usePathname();
+    const { data: session, status } = useSession();
     return(
         <header>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,8 +29,23 @@ export default function Header() {
                     </div>
                     <div className="functional-buttons">
                         <ul className="navbar-nav ml-auto gap-3">
-                            <li className="nav-item"><Link className="btn btn-primary" href="/login">Log in</Link></li>
-                            <li className="nav-item"><Link className="btn btn-success" href="/register">Sign Up</Link></li>
+                            {status === 'unauthenticated' && (
+                                <>
+                                    <li className="nav-item"><Link className="btn btn-primary" href="/login">Log in</Link></li>
+                                    <li className="nav-item"><Link className="btn btn-success" href="/register">Sign Up</Link></li>
+                                </>
+                            )}
+                            {status ==='authenticated' && (
+                                <>
+                                    <li className="nav-item"><Link className="btn btn-danger" href="/logout">Logout</Link></li>
+                                </>
+                            )}
+                            { status === 'loading' &&  (
+                                <>
+                                    <li className="nav-item"><Link className="btn btn-warning" href="#">Locading...</Link></li>
+                                </>
+                            )}
+                            
                         </ul>
                     </div>
                 </div>

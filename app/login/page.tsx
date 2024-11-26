@@ -49,7 +49,7 @@ export default function Login(){
                 } else if (session?.status === "failed") {
                     toast.error(session.message || "Login failed. Please try again.");
                 } else {
-                    toast.error("An unexpected error occurred. Please try again. no session");
+                    toast.error("Login failed. Please check your credentials and try again.");
                 }
             } else {
                 toast.error("An unexpected error occurred. Please try again. no result");
