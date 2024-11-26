@@ -18,28 +18,39 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         }
     }, [status, router]);
 
+    useEffect(() => {
+        // Dynamically add the CSS file for the dashboard
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "/css/sb-admin-2.css";
+        link.id = "dashboard-css"; // Add an ID for easy identification
+        document.head.appendChild(link);
+
+        return () => {
+            // Remove the CSS file when the component is unmounted
+            const existingLink = document.getElementById("dashboard-css");
+            if (existingLink) {
+                existingLink.remove();
+            }
+        };
+    }, []);
+
     if (status === "loading") {
         return <p>Loading...</p>;
     }
 
     return (
         <>
-            <DashboardHeader></DashboardHeader>
-            <main className="dashboardLayout">
-                <div className="container-fluid px-0">
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <div className="dashboardSidebar">
-                                <DashboardSidebar></DashboardSidebar>
-                            </div>
-                        </div>
-                        <div className="col-lg-8">
-                            <div className="dashboardContent">{children}</div>
-                        </div>
+            <div id="wrapper">
+                <DashboardSidebar></DashboardSidebar>
+                <div id="content-wrapper" className="d-flex flex-column">
+                    <div id="content">
+                        <DashboardHeader></DashboardHeader>
+                        {children}
                     </div>
+                    <DashboardFooter></DashboardFooter>
                 </div>
-            </main>
-            <DashboardFooter></DashboardFooter>
+            </div>    
         </>
     );
 }
