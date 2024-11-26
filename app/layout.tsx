@@ -37,9 +37,9 @@ export default function RootLayout({
       <body>
         <SessionProvider>
           <Header />
-          <ToastContainer />
           {children}
           <Footer />
+          <ToastContainer />
         </SessionProvider>
       </body>
     </html>
