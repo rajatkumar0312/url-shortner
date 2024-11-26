@@ -79,7 +79,7 @@ const handler = NextAuth({
                 token.id = user.id;
                 token.name = user.name;
                 token.email = user.email;
-                token.status = user.status || null; 
+                token.ustatus = user.status || 'not_found'; 
                 token.message = user.message || null;
                 token.role = user.role || "user"; 
             }
@@ -93,7 +93,7 @@ const handler = NextAuth({
                     email: token.email,
                     role: token.role, 
                 };
-                session.status = token.status || null; 
+                session.ustatus = token.ustatus || null; 
                 session.message = token.message || null; 
             }
             return session;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { signIn, getSession } from "next-auth/react";
+import { signIn, getSession, signOut } from "next-auth/react";
 
 export default function Login(){
     const router = useRouter();
@@ -18,49 +18,70 @@ export default function Login(){
             [name]: value
         }));
     }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-
+    
         if (!formData.username || !formData.password) {
             toast.error("Please fill in both username and password.");
             setLoading(false);
             return;
         }
-
+    
         try {
+            // Attempt to sign in
+            console.log("Attempting to sign in with credentials:", formData);
             const result = await signIn("credentials", {
-                redirect: false,
+                redirect: false, // Prevent redirect for manual handling
                 username: formData.username,
                 password: formData.password,
             });
+    
+            console.log("SignIn Result:", result); // Log the result from `signIn`
+    
+            if (result?.error) {
+                toast.error(result.error || "Login failed. Please try again.");
+                setLoading(false);
+                return;
+            }
+    
+            // Fetch the session
+            console.log("Fetching session after successful sign-in...");
+            const session = await getSession();
+            console.log("Retrieved Session Data:", session);
+    
+            // Check session status
+            if (!session || session?.ustatus === "not_found" || session?.ustatus === "failed") {
+                console.log("Unauthenticated session detected.");
+                toast.error(session?.message || "Login failed. Please check your credentials and try again.");
 
-            if (result) {
-                console.log(result);
-                //setResult(result);
-                
-                const session = await getSession();
-                console.log(session);
-                if (session?.status === "success") {
-                    toast.success(session.message || "Login successful! Redirecting...");
-                    router.push("/dashboard/home");
-                } else if (session?.status === "not_found") {
-                    toast.error(session.message || "User not found.");
-                } else if (session?.status === "failed") {
-                    toast.error(session.message || "Login failed. Please try again.");
-                } else {
-                    toast.error("Login failed. Please check your credentials and try again.");
-                }
+                // Destroy session, JWT, and cookies
+                await signOut({ redirect: false }); // Sign out without redirect
+                document.cookie.split(";").forEach((cookie) => {
+                    const name = cookie.split("=")[0].trim();
+                    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+                });
+
+                router.push("/login"); // Redirect to login
+                return;
+            }
+
+    
+            if (session?.ustatus === "success") {
+                toast.success(session.message || "Login successful! Redirecting...");
+                router.push("/dashboard/home");
             } else {
-                toast.error("An unexpected error occurred. Please try again. no result");
+                toast.error("Unexpected session status. Please try again.");
             }
         } catch (error) {
             console.error("Login error:", error);
-            toast.error("An unexpected error occurred. Please try again. outer");
+            toast.error("An unexpected error occurred. Please try again.");
         } finally {
             setLoading(false);
         }
     };
+    
     const handleGoogleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setLoading(true);
